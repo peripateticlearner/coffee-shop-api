@@ -13,6 +13,8 @@ app.set('view engine', 'ejs');
 
 // Static files
 app.use(express.static('images'));
+app.use(express.static('public'));
+
 
 // Routes
 const menuRoute = require('./routes/menu');
@@ -25,6 +27,11 @@ app.use('/about', aboutRoute);
 
 app.get('/', (req, res) => {
     res.render('index', { title: "Welcome to the Coffee Shop" });
+});
+
+// 404 Page Not Found Middleware
+app.use((req, res) => {
+    res.status(404).send("Page Not Found");
 });
 
 app.listen(PORT, () => {
