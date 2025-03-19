@@ -1,0 +1,7 @@
+<h1><%= title %></h1>
+<ul>
+    <% coffeeMenu.forEach(coffee => { %>
+        <li><%= coffee.name %> - $<%= coffee.price %></li>
+    <% }) %>
+</ul>
+<a href="/">Back to Home</a>
